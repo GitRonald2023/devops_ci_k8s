@@ -5,6 +5,7 @@ kind: ServiceAccount
 metadata:
   name: jenkins
   namespace: default
+  
 ---
 kind: Role
 apiVersion: rbac.authorization.k8s.io/v1
@@ -70,10 +71,3 @@ rules:
   resources: ["persistentvolumes"]
   verbs: ["create","delete","get","list","patch","update","watch"]
 ---
-apiVersion: v1
-kind: Secret
-metadata:
-  name: jenkins1
-  annotations:
-    kubernetes.io/service-account.name: jenkins1
-type: kubernetes.io/service-account-token
